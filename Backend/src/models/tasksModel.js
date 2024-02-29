@@ -25,7 +25,8 @@ const createTask = async (task) => {
 
   const updateTask = async (id, task) => {
 
-    const query = 'UPDATE tasks SET title = ?, status = ?, WHERE id =?'; 
+    const { title, status } = task;
+    const query = 'UPDATE tasks SET title = ?, status = ? WHERE id = ?'; 
 
     const [updatedTask] = await connection.execute(query, [task.title, task.status, id]);
     return {updatedTask};

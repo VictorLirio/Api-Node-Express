@@ -24,9 +24,9 @@ const createTask = async (request, response) => {
 
     const { id } = request.params
 
-    await tasksModel.updateTask(id, request.message); 
+    await tasksModel.updateTask(id, request.body); 
 
-    return response.status(204).json({message: 'Task updated'});
+    return response.status(204).json();
 
   }
 
